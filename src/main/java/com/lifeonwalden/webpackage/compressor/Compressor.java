@@ -63,7 +63,9 @@ public class Compressor {
                     osw.close();
                 }
             }
-            doc.head().append("<link href=\"".concat(properties.getProperty("index.output.js.path")).concat(str)."\" rel=\"stylesheet\" type=\"text/css\" />");
+            doc.head().append(
+                            "<link href=\"".concat(properties.getProperty("index.output.js.path")).concat(outputCssFile.getName())
+                                            .concat("\" rel=\"stylesheet\" type=\"text/css\" />"));
 
             Elements scriptElements = doc.getElementsByTag("script");
             String[] compressArgs = new String[scriptElements.size() + 2];
