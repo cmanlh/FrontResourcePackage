@@ -49,7 +49,11 @@ public class Compressor {
                     if (null != virtualPath) {
                         linkPath = linkPath.replace(virtualPath, "");
                     }
-                    InputStreamReader isr = new InputStreamReader(new FileInputStream(resourcesAbsolutePath.concat(linkPath)), charset);
+                    File cssFile = new File(linkPath);
+                    if (!cssFile.isAbsolute()) {
+                        cssFile = new File(resourcesAbsolutePath.concat(linkPath));
+                    }
+                    InputStreamReader isr = new InputStreamReader(new FileInputStream(cssFile), charset);
                     CssCompressor compressor = new CssCompressor(isr);
                     isr.close();
                     OutputStreamWriter osw = null;
@@ -82,7 +86,7 @@ public class Compressor {
                     }
                     File scriptFile = new File(srcPath);
                     if (!scriptFile.isAbsolute()) {
-                        scriptFile = new File(index.getParent().concat(String.valueOf(File.separatorChar)).concat(srcPath));
+                        scriptFile = new File(resourcesAbsolutePath.concat(srcPath));
                     }
                     compressArgs[idx++] = scriptFile.getAbsolutePath();
                 }
