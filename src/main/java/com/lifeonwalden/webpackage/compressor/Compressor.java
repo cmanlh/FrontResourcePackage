@@ -43,7 +43,7 @@ public class Compressor {
             String linkPath = null;
             boolean firstOne = true;
             for (Element link : linkElements) {
-                if (HtmlAttributeName.CSS_TYPE.equalsIgnoreCase(link.attr("type")) || HtmlAttributeName.CSS_REF.equalsIgnoreCase(link.attr("ref"))) {
+                if (HtmlAttributeName.CSS_TYPE.equalsIgnoreCase(link.attr("type")) || HtmlAttributeName.CSS_REL.equalsIgnoreCase(link.attr("rel"))) {
                     link.remove();
                     linkPath = link.attr("href");
                     if (null != virtualPath) {
@@ -68,7 +68,7 @@ public class Compressor {
                 }
             }
             doc.head().append(
-                            "<link href=\"".concat(properties.getProperty("index.output.js.path")).concat(outputCssFile.getName())
+                            "<link href=\"".concat(properties.getProperty("index.output.css.path")).concat(outputCssFile.getName())
                                             .concat("\" rel=\"stylesheet\" type=\"text/css\" />"));
 
             Elements scriptElements = doc.getElementsByTag("script");
@@ -96,8 +96,8 @@ public class Compressor {
             doc.body().append(
                             "<script type=\"text/javascript\" src=\"".concat(properties.getProperty("index.output.js.path"))
                                             .concat(outputScriptFile.getName()).concat("\"></script>"));
-            FileOutputStream fos = new FileOutputStream(properties.getProperty("index.output"));
-            fos.write(doc.html().getBytes());
+            OutputStreamWriter fos = new OutputStreamWriter(new FileOutputStream(properties.getProperty("index.output")), charset);
+            fos.write(doc.html());
             fos.flush();
             fos.close();
             CustCommandLineRunner.main(compressArgs);
