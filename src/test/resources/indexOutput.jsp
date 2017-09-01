@@ -2,8 +2,9 @@
 <html>
  <head> 
   <meta charset="UTF-8"> 
-  <title>Hello World</title>   
-  <link href="js/app-1.2.0.css" rel="stylesheet" type="text/css">
+  <title>Hello World</title> 
+  <link href="open/css/jquery-ui.css" rel="stylesheet" type="text/css">   
+  <link href="css/app-1.2.6.css" rel="stylesheet" type="text/css">
  </head> 
  <body> 
   <div>
@@ -16,6 +17,6 @@
     </tr> 
    </tbody>
   </table>    
-  <script type="text/javascript" src="js/app-1.2.0.js"></script>
+  <script type="text/javascript" src="js/app-1.2.6.js"></script>
  </body>
 </html>

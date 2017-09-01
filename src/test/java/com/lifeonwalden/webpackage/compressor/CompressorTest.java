@@ -8,6 +8,6 @@ public class CompressorTest {
 
     @Test
     public void run() {
-        Compressor.main(new String[] {"C:\\Users\\luhong\\git\\FrontResourcePackage\\src\\test\\resources\\compress.properties"});
+        Compressor.main(new String[] {"D:\\ideaProjects\\FrontResourcePackage\\src\\test\\resources\\compress.properties"});
     }
 }

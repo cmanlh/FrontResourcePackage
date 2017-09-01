@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Hello World</title>
+<link href="open/css/jquery-ui.css" rel="stylesheet" type="text/css" ignore="ignore"/>
 <link href="open/css/jquery-ui.css" rel="stylesheet" type="text/css" />
 <link href="open/css/jquery.contextMenu.css" rel="stylesheet" type="text/css" />
 </head>
